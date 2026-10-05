@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teddify - Premium Web Solutions</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Lottie Animation Player -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Animated Soft Mesh Background -->
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+    <div class="bg-shape bg-shape-3"></div>
+
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="Logo.png" alt="Teddify Logo" class="custom-logo">
+                <span>TEDDIFY</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <div class="dropdown">
+                    <a href="#services" class="nav-link dropdown-toggle">
+                        Services <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#services"><i class="fa-solid fa-laptop-code"></i> Web Design</a>
+                        <a href="#services"><i class="fa-solid fa-code"></i> Development</a>
+                        <a href="#services"><i class="fa-solid fa-magnifying-glass-chart"></i> SEO</a>
+                    </div>
+                </div>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#blog" class="nav-link">Blog</a>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Dark Mode Toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="#contact" class="btn btn-primary btn-quote magnetic-btn">Get A Quote</a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-container">
+                <div class="hero-content animate-on-scroll">
+                    <h1 class="hero-title">
+                        We Build Innovative Websites That <br>
+                        <span class="text-gradient">Grow Your Business.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Teddify: Your Partner for Scalable, Secure, and Engaging Digital Solutions. Experience the next generation of web development.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-accent btn-glow magnetic-btn">Start Your Project Today</a>
+                        <a href="#portfolio" class="btn btn-outline magnetic-btn">Explore Our Portfolio</a>
+                    </div>
+
+                    <!-- Social Media Handles (Hero Section) -->
+                    <div class="hero-socials">
+                        <span class="social-label">Connect with us:</span>
+                        <div class="social-icons">
+                            <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="social-btn" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://www.instagram.com/tedd_ify/" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual animate-on-scroll">
+    <div class="glass-card hero-logo-showcase">
+        <div class="floating-badge">
+            <i class="fa-solid fa-shield-halved"></i> Secure & Scalable
+        </div>
+        <div class="hero-logo-wrapper">
+            <img src="Logo.png" alt="Teddify Bear Developer" class="hero-main-logo">
+            <div class="logo-glow-ring"></div>
+        </div>
+        <div class="hero-tech-pills">
+            <span><i class="fa-brands fa-react"></i> React</span>
+            <span><i class="fa-brands fa-python"></i> Python</span>
+            <span><i class="fa-solid fa-terminal"></i> Security</span>
+        </div>
+    </div>
+</div>
+        </section>
+
+        <!-- Infinite Logo Marquee -->
+        <div class="marquee-wrapper animate-on-scroll">
+            <p class="marquee-title">Trusted by innovative teams worldwide</p>
+            <div class="marquee">
+                <div class="marquee-content">
+                    <i class="fa-brands fa-react"></i><span>React</span>
+                    <i class="fa-brands fa-node-js"></i><span>Node.js</span>
+                    <i class="fa-brands fa-aws"></i><span>AWS</span>
+                    <i class="fa-brands fa-figma"></i><span>Figma</span>
+                    <i class="fa-brands fa-google"></i><span>Google Cloud</span>
+                    <i class="fa-brands fa-stripe"></i><span>Stripe</span>
+                    <!-- Duplicated for seamless scrolling -->
+                    <i class="fa-brands fa-react"></i><span>React</span>
+                    <i class="fa-brands fa-node-js"></i><span>Node.js</span>
+                    <i class="fa-brands fa-aws"></i><span>AWS</span>
+                    <i class="fa-brands fa-figma"></i><span>Figma</span>
+                    <i class="fa-brands fa-google"></i><span>Google Cloud</span>
+                    <i class="fa-brands fa-stripe"></i><span>Stripe</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Choose Teddify Section -->
+        <section class="why-choose" id="why-choose">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Why Choose Teddify?</h2>
+                <div class="features-grid">
+                    <div class="feature-card glass-card animate-on-scroll">
+                        <div class="feature-icon-wrapper icon-orange">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="feature-title">Custom Solutions</h3>
+                        <p class="feature-desc">Tailored Designs & Functionality crafted specifically for your unique brand requirements.</p>
+                    </div>
+
+                    <div class="feature-card glass-card animate-on-scroll">
+                        <div class="feature-icon-wrapper icon-blue">
+                            <i class="fa-solid fa-users-viewfinder"></i>
+                        </div>
+                        <h3 class="feature-title">Expert Team</h3>
+                        <p class="feature-desc">Experienced Developers & Designers with track records of global success.</p>
+                    </div>
+
+                    <div class="feature-card glass-card animate-on-scroll">
+                        <div class="feature-icon-wrapper icon-teal">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <h3 class="feature-title">Results-Driven</h3>
+                        <p class="feature-desc">SEO-Optimized & User-Centric strategies designed to convert visitors into clients.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Services Section -->
+        <section class="services-section" id="services">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-box glass-card animate-on-scroll">
+                        <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h4>Web Design</h4>
+                        <p>Beautiful, responsive UI/UX experiences crafted to engage.</p>
+                    </div>
+                    <div class="service-box glass-card animate-on-scroll">
+                        <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                        <h4>Development</h4>
+                        <p>Fast, clean code using modern tech stacks like React & Node.</p>
+                    </div>
+                    <div class="service-box glass-card animate-on-scroll">
+                        <div class="service-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                        <h4>SEO</h4>
+                        <p>Rank higher on search engines and attract organic traffic.</p>
+                    </div>
+                    <div class="service-box glass-card animate-on-scroll">
+                        <div class="service-icon"><i class="fa-solid fa-gears"></i></div>
+                        <h4>Maintenance</h4>
+                        <p>Continuous updates, regular backups & top security monitoring.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Work / Portfolio Section -->
+        <section class="portfolio-section" id="portfolio">
+            <div class="container">
+                <div class="portfolio-header animate-on-scroll">
+                    <h2 class="section-title">Featured Work</h2>
+                    <a href="#" class="view-all-link">View All Projects <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-card glass-card animate-on-scroll">
+                        <div class="portfolio-img portfolio-bg-1">
+                            <div class="portfolio-overlay">
+                                <a href="#" class="portfolio-btn magnetic-btn"><i class="fa-solid fa-eye"></i> View Case Study</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-tag">SaaS Platform</span>
+                            <h3>Fintech Analytics Dashboard</h3>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card glass-card animate-on-scroll">
+                        <div class="portfolio-img portfolio-bg-2">
+                            <div class="portfolio-overlay">
+                                <a href="#" class="portfolio-btn magnetic-btn"><i class="fa-solid fa-eye"></i> View Case Study</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-tag">E-Commerce</span>
+                            <h3>Modern Fashion Brand Store</h3>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card glass-card animate-on-scroll">
+                        <div class="portfolio-img portfolio-bg-3">
+                            <div class="portfolio-overlay">
+                                <a href="#" class="portfolio-btn magnetic-btn"><i class="fa-solid fa-eye"></i> View Case Study</a>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-tag">Mobile App</span>
+                            <h3>Health & Wellness Platform</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog & Industry Insights Section -->
+<section class="blog-section" id="blog">
+    <div class="container">
+        <div class="section-header text-center animate-on-scroll">
+            <span class="section-badge"><i class="fa-solid fa-newspaper"></i> Engineering Insights</span>
+            <h2 class="section-title">Latest Tech & Business Articles</h2>
+            <p class="section-subtitle">Deep dives into web application security, front-end speed optimization, and AI automation.</p>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Blog Post 1: Cybersecurity -->
+            <article class="blog-card glass-card animate-on-scroll">
+                <div class="blog-img-wrapper">
+                    <span class="blog-category cat-security">Cybersecurity</span>
+                    <div class="blog-img-bg blog-bg-1">
+                        <i class="fa-solid fa-shield-cat"></i>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="fa-regular fa-calendar"></i> Sep 20, 2026</span>
+                        <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+                    </div>
+                    <h3 class="blog-title"><a href="#">Why Web Application Security is the Core of Business Growth</a></h3>
+                    <p class="blog-excerpt">
+                        Discover how zero-trust architecture, automated threat monitoring, and proactive vulnerability audits protect your application and build long-term customer trust.
+                    </p>
+                    <div class="blog-footer">
+                        <div class="blog-author">
+                            <img src="Logo.png" alt="Teddify Security Team" class="author-img">
+                            <span>Teddify Security</span>
+                        </div>
+                        <a href="#" class="read-more-btn">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 2: Full-Stack Dev -->
+            <article class="blog-card glass-card animate-on-scroll">
+                <div class="blog-img-wrapper">
+                    <span class="blog-category cat-dev">Development</span>
+                    <div class="blog-img-bg blog-bg-2">
+                        <i class="fa-solid fa-code-merge"></i>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="fa-regular fa-calendar"></i> Sep 15, 2026</span>
+                        <span><i class="fa-regular fa-clock"></i> 7 min read</span>
+                    </div>
+                    <h3 class="blog-title"><a href="#">Maximizing ROI with Sub-Second Web Performance & React</a></h3>
+                    <p class="blog-excerpt">
+                        How optimizing Core Web Vitals and implementing server-side rendering directly improves search engine rankings, user retention, and checkout conversion rates.
+                    </p>
+                    <div class="blog-footer">
+                        <div class="blog-author">
+                            <img src="Logo.png" alt="Teddify Dev Team" class="author-img">
+                            <span>Teddify Engineering</span>
+                        </div>
+                        <a href="#" class="read-more-btn">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 3: AI & Automation -->
+            <article class="blog-card glass-card animate-on-scroll">
+                <div class="blog-img-wrapper">
+                    <span class="blog-category cat-ai">AI & Automation</span>
+                    <div class="blog-img-bg blog-bg-3">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="fa-regular fa-calendar"></i> Sep 10, 2026</span>
+                        <span><i class="fa-regular fa-clock"></i> 6 min read</span>
+                    </div>
+                    <h3 class="blog-title"><a href="#">Integrating Custom Python AI Agents into Web Workflows</a></h3>
+                    <p class="blog-excerpt">
+                        Learn how modern enterprises cut operational overhead by over 40% by pairing intuitive front-end interfaces with custom Python automation backends.
+                    </p>
+                    <div class="blog-footer">
+                        <div class="blog-author">
+                            <img src="Logo.png" alt="Teddify AI Team" class="author-img">
+                            <span>Teddify Labs</span>
+                        </div>
+                        <a href="#" class="read-more-btn">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer animate-on-scroll">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="#" class="logo footer-logo">
+                    <img src="Logo.png" alt="Teddify Logo" class="custom-logo">
+                    <span>TEDDIFY</span>
+                </a>
+                <p class="footer-desc">
+                    Empowering businesses with modern, fast, and scalable digital web solutions. Let's build the future together.
+                </p>
+                <div class="footer-socials">
+                    <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="benefits.html">Why Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Website Development</a></li>
+                    <li><a href="#">UI/UX Design</a></li>
+                    <li><a href="#">SEO Optimization</a></li>
+                    <li><a href="#">Brand Identity</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Newsletter</h4>
+                <p class="footer-desc">Subscribe to our newsletter for latest tech insights.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>&copy; 2026 Teddify. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

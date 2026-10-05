@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teddify - Digital Agency</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#0F62FE',
+                            orange: '#FF7A00',
+                            dark: '#0F172A',
+                            light: '#F8FAFC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e293b;
+            overflow-x: hidden;
+            background-color: #fcfcfd;
+        }
+
+        /* Subtle mesh gradient background */
+        .mesh-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(224, 242, 254, 0.7) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(255, 237, 213, 0.6) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(224, 242, 254, 0.5) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(243, 232, 255, 0.4) 0px, transparent 50%);
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Hover lifting effect for cards */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Decorative Background shapes */
+        .deco-shape {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="mesh-bg"></div>
+
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer">
+                    <div class="text-3xl font-extrabold tracking-tight flex items-center gap-1">
+                        <span class="text-brand-blue relative">
+                            T<i class="fa-solid fa-paw text-brand-orange text-xs absolute -top-1 -right-3"></i>
+                        </span>
+                        <span class="text-gray-900 ml-2">TEDDIFY</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 font-medium text-sm text-gray-700">
+                    <a href="#" class="text-brand-blue border-b-2 border-brand-blue pb-1 hover:text-brand-blue transition-colors">Home</a>
+                    <a href="#" class="hover:text-brand-blue transition-colors flex items-center gap-1">Services <i class="fa-solid fa-chevron-down text-[10px]"></i></a>
+                    <a href="#" class="hover:text-brand-blue transition-colors">Website Development</a>
+                    <a href="#" class="hover:text-brand-blue transition-colors">SEO</a>
+                    <a href="#" class="hover:text-brand-blue transition-colors">Branding</a>
+                    <a href="#" class="hover:text-brand-blue transition-colors">Portfolio</a>
+                    <a href="#" class="hover:text-brand-blue transition-colors">Blog</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex">
+                    <a href="#" class="bg-brand-blue hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-medium transition-all transform hover:scale-105 shadow-md hover:shadow-lg">
+                        Get A Quote
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-600 hover:text-brand-blue focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Hero Content -->
+                <div class="reveal">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark leading-tight tracking-tight mb-6">
+                        We Build Innovative Websites That Grow Your Business.
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
+                        Teddify: Your Partner for Scalable, Secure, and Engaging Digital Solutions. Let's turn your vision into a digital masterpiece.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="bg-brand-orange hover:bg-orange-600 text-white px-8 py-3.5 rounded-full font-semibold transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-orange-500/30">
+                            Start Your Project Today
+                        </a>
+                        <a href="#" class="bg-white border-2 border-gray-200 hover:border-brand-blue hover:text-brand-blue text-brand-dark px-8 py-3.5 rounded-full font-semibold transition-all transform hover:-translate-y-1 shadow-sm">
+                            Explore Our Portfolio
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image/Illustration Placeholder -->
+                <div class="relative reveal delay-200">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-white border border-gray-100 p-2 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://placehold.co/800x600/f8fafc/0f172a?text=Team+Collaboration+Illustration" alt="Team working on digital solutions" class="w-full h-auto rounded-xl object-cover">
+                        
+                        <!-- Decorative floating elements mimicking UI cards -->
+                        <div class="absolute top-10 -left-6 bg-white p-3 rounded-lg shadow-xl animate-bounce" style="animation-duration: 3s;">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-brand-blue"><i class="fa-solid fa-code"></i></div>
+                                <div>
+                                    <div class="h-2 w-16 bg-gray-200 rounded mb-1"></div>
+                                    <div class="h-2 w-10 bg-gray-100 rounded"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-10 -right-6 bg-white p-3 rounded-lg shadow-xl animate-bounce" style="animation-duration: 4s; animation-delay: 1s;">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-brand-orange"><i class="fa-solid fa-chart-line"></i></div>
+                                <div>
+                                    <div class="h-2 w-12 bg-gray-200 rounded mb-1"></div>
+                                    <div class="h-2 w-16 bg-gray-100 rounded"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">Why Choose Teddify?</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-50 hover-lift reveal delay-100">
+                    <div class="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 text-brand-blue text-2xl">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Custom Solutions</h3>
+                    <p class="text-gray-500 leading-relaxed">Tailored Designs & Functionality crafted specifically to meet your unique business objectives.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-50 hover-lift reveal delay-200">
+                    <div class="w-14 h-14 rounded-xl bg-orange-50 flex items-center justify-center mb-6 text-brand-orange text-2xl">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Expert Team</h3>
+                    <p class="text-gray-500 leading-relaxed">Experienced Developers & Designers working collaboratively to deliver excellence.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-50 hover-lift reveal delay-300">
+                    <div class="w-14 h-14 rounded-xl bg-purple-50 flex items-center justify-center mb-6 text-purple-600 text-2xl">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Results-Driven</h3>
+                    <p class="text-gray-500 leading-relaxed">SEO-Optimized & User-Centric platforms designed to maximize your ROI and engagement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Our Services Placeholder -->
+                <div class="reveal">
+                    <h2 class="text-2xl md:text-3xl font-bold text-brand-dark mb-8">Our Services</h2>
+                    <div class="grid grid-cols-2 gap-6 text-center">
+                        <div class="p-6 rounded-2xl bg-white shadow-sm border border-gray-100 hover:border-brand-blue/30 transition-colors">
+                            <i class="fa-solid fa-laptop-code text-3xl text-brand-blue mb-4"></i>
+                            <h4 class="font-semibold text-gray-800">Web Design</h4>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-white shadow-sm border border-gray-100 hover:border-brand-blue/30 transition-colors">
+                            <i class="fa-solid fa-gear text-3xl text-brand-orange mb-4"></i>
+                            <h4 class="font-semibold text-gray-800">Development</h4>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-white shadow-sm border border-gray-100 hover:border-brand-blue/30 transition-colors">
+                            <i class="fa-solid fa-magnifying-glass-chart text-3xl text-green-500 mb-4"></i>
+                            <h4 class="font-semibold text-gray-800">SEO</h4>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-white shadow-sm border border-gray-100 hover:border-brand-blue/30 transition-colors">
+                            <i class="fa-solid fa-shield-halved text-3xl text-purple-500 mb-4"></i>
+                            <h4 class="font-semibold text-gray-800">Maintenance</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Work Placeholder -->
+                <div class="reveal delay-200">
+                    <h2 class="text-2xl md:text-3xl font-bold text-brand-dark mb-8 flex justify-between items-end">
+                        Featured Work
+                        <a href="#" class="text-sm font-medium text-brand-blue hover:underline">View All <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="group relative rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all">
+                            <img src="https://placehold.co/400x300/38bdf8/ffffff?text=E-Commerce+App" alt="Portfolio 1" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                                <span class="text-white font-medium">E-Commerce Platform</span>
+                            </div>
+                        </div>
+                        <div class="group relative rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all">
+                            <img src="https://placehold.co/400x300/fb923c/ffffff?text=SaaS+Dashboard" alt="Portfolio 2" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                                <span class="text-white font-medium">SaaS Dashboard</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white border-t border-gray-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8 reveal">
+                <div class="text-2xl font-extrabold tracking-tight flex items-center gap-1 mb-6 md:mb-0">
+                    <span class="text-brand-blue relative">
+                        T<i class="fa-solid fa-paw text-brand-orange text-[10px] absolute -top-1 -right-2"></i>
+                    </span>
+                    <span class="text-gray-900 ml-2">TEDDIFY</span>
+                </div>
+                
+                <!-- Social Media Icons -->
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-black hover:text-white transition-all hover:scale-110 shadow-sm">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-gradient-to-br hover:from-purple-500 hover:to-brand-orange hover:text-white transition-all hover:scale-110 shadow-sm">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-[#1877F2] hover:text-white transition-all hover:scale-110 shadow-sm">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 reveal delay-100">
+                <p>&copy; 2026 Teddify Digital Agency. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-brand-blue">Privacy Policy</a>
+                    <a href="#" class="hover:text-brand-blue">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Reveal Animation using Intersection Observer
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealOnScroll.observe(el);
+            });
+
+            // Optional: Add simple navbar background effect on scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    navbar.classList.add('shadow-sm');
+                    navbar.classList.replace('bg-white/80', 'bg-white/95');
+                } else {
+                    navbar.classList.remove('shadow-sm');
+                    navbar.classList.replace('bg-white/95', 'bg-white/80');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
