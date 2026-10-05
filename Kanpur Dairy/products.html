@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | Kanpur Dairy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    
+    <nav class="glass-nav">
+        <a href="index.html" class="logo">Kanpur Dairy</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="products.html" class="nav-btn active">Products</a>
+            <a href="calculator.html" class="nav-btn">Calculator</a>
+        </div>
+    </nav>
+
+    <main>
+        <h2 class="page-title">Our Premium Dairy Collection</h2>
+        <p class="subtitle">Freshly churned and processed daily in Kanpur for health and taste.</p>
+
+        <div class="product-grid">
+            <div class="product-card glass">
+                <div class="product-icon">🥛</div>
+                <h3>A2 Cow Milk</h3>
+                <p>Fresh organic cow milk, easy to digest and full of A2 beta-casein proteins.</p>
+                <p class="price">₹80 / Litre</p>
+                <button class="add-to-cart">Order Now</button>
+            </div>
+            
+            <div class="product-card glass">
+                <div class="product-icon">🍶</div>
+                <h3>Buffalo Milk</h3>
+                <p>Thick, rich, and creamy milk. Perfect for tea, coffee, and home desserts.</p>
+                <p class="price">₹70 / Litre</p>
+                <button class="add-to-cart">Order Now</button>
+            </div>
+            
+            <div class="product-card glass">
+                <div class="product-icon">🧈</div>
+                <h3>Desi Bilona Ghee</h3>
+                <p>Traditional hand-churned A2 cow ghee prepared with the Vedic Bilona method.</p>
+                <p class="price">₹1200 / Kg</p>
+                <button class="add-to-cart">Order Now</button>
+            </div>
+            
+            <div class="product-card glass">
+                <div class="product-icon">🧀</div>
+                <h3>Malai Paneer</h3>
+                <p>Ultra-soft, cottage cheese made from pure full-cream milk.</p>
+                <p class="price">₹350 / Kg</p>
+                <button class="add-to-cart">Order Now</button>
+            </div>
+
+            <div class="product-card glass">
+                <div class="product-icon">🥣</div>
+                <h3>Fresh Organic Dahi</h3>
+                <p>Naturally fermented, thick curd packed with healthy probiotics.</p>
+                <p class="price">₹80 / 500g</p>
+                <button class="add-to-cart">Order Now</button>
+            </div>
+
+            <div class="product-card glass">
+                <div class="product-icon">🧈</div>
+                <h3>White Butter (Makhan)</h3>
+                <p>Freshly churned unsalted white butter, traditional homemade taste.</p>
+                <p class="price">₹450 / 500g</p>
+                <button class="add-to-cart">Order Now</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+            gsap.from(".page-title", { opacity: 0, y: -20, duration: 0.8 });
+            gsap.from(".subtitle", { opacity: 0, duration: 0.8, delay: 0.2 });
+            gsap.from(".product-card", {
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "power3.out",
+                delay: 0.4
+            });
+        });
+    </script>
+</body>
+</html>

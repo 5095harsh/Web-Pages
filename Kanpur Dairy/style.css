@@ -1,0 +1,550 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* --- 1. CSS Custom Properties / Color Variables --- */
+:root {
+    --bg-gradient: linear-gradient(135deg, #e0f7fa, #b2ebf2, #ffffff);
+    --text-primary: #004d40;
+    --text-secondary: #333333;
+    --text-muted: #555555;
+    --card-bg: rgba(255, 255, 255, 0.55);
+    --card-border: rgba(255, 255, 255, 0.7);
+    --nav-bg: rgba(255, 255, 255, 0.65);
+    --input-bg: rgba(255, 255, 255, 0.8);
+    --accent-color: #00838f;
+    --accent-hover: #005662;
+    --accent-gold: #f57f17;
+    --card-shadow: 0 8px 32px rgba(0, 131, 143, 0.1);
+}
+
+/* Dark Mode Theme Overrides */
+body.dark-mode {
+    --bg-gradient: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+    --text-primary: #f8fafc;
+    --text-secondary: #e2e8f0;
+    --text-muted: #94a3b8;
+    --card-bg: rgba(30, 41, 59, 0.65);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(15, 23, 42, 0.85);
+    --input-bg: rgba(15, 23, 42, 0.6);
+    --accent-color: #00bcd4;
+    --accent-hover: #26c6da;
+    --accent-gold: #ffd54f;
+    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* --- 2. Base & Reset Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-secondary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 3D Background Canvas */
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Glassmorphism Common Class */
+.glass {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+}
+
+/* --- 3. Navigation Bar --- */
+.glass-nav {
+    background: var(--nav-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 16px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-btn {
+    text-decoration: none;
+    padding: 9px 20px;
+    font-size: 15px;
+    color: var(--text-secondary);
+    border-radius: 25px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn:hover {
+    background: var(--card-bg);
+    color: var(--accent-color);
+}
+
+.nav-btn.active {
+    color: #ffffff;
+    background: var(--accent-color);
+    font-weight: 600;
+}
+
+.badge {
+    background: #ff5722;
+    color: #ffffff;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.theme-toggle-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    padding: 8px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.08);
+}
+
+/* --- 4. Main Layout & Page Titles --- */
+main {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.page-title {
+    text-align: center;
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-size: 1.05rem;
+}
+
+/* --- 5. Hero & Feature Sections (Home Page) --- */
+.hero {
+    text-align: center;
+    margin: 60px 0 80px 0;
+}
+
+.hero h1 {
+    font-size: 3.4rem;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto 35px auto;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--accent-color);
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 131, 143, 0.25);
+    text-align: center;
+}
+
+.cta-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.cta-btn.secondary {
+    background: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    box-shadow: none;
+}
+
+.cta-btn.secondary:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+}
+
+.whatsapp-btn {
+    background: #25d366;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+    background: #1ebc57;
+}
+
+.full-width {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Feature & Product Grids */
+.features-grid, .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.feature-card, .product-card {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+}
+
+.product-icon, .feature-card .icon {
+    font-size: 3.2rem;
+    margin-bottom: 10px;
+}
+
+.product-card h3, .feature-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.product-card p, .feature-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.product-card .price {
+    font-weight: 700;
+    margin: 15px 0 10px 0;
+    font-size: 1.25rem;
+    color: var(--accent-gold);
+}
+
+.add-to-cart {
+    padding: 10px 20px;
+    background: rgba(0, 131, 143, 0.1);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+}
+
+.add-to-cart:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+}
+
+/* --- 6. Subscription Calculator Styles --- */
+.calculator-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.calc-box {
+    padding: 30px;
+}
+
+.product-selector-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.product-chip {
+    padding: 14px;
+    border-radius: 14px;
+    border: 2px solid var(--card-border);
+    background: var(--card-bg);
+    text-align: center;
+    cursor: pointer;
+}
+
+.product-chip.active {
+    border-color: var(--accent-color);
+    background: rgba(0, 131, 143, 0.15);
+}
+
+.product-chip .chip-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.product-chip .chip-price {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.slider-group {
+    margin-bottom: 25px;
+}
+
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.styled-slider {
+    width: 100%;
+    accent-color: var(--accent-color);
+    height: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.result-box {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dashboard-card {
+    background: rgba(0, 131, 143, 0.08);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid var(--accent-color);
+}
+
+.dashboard-card .label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.dashboard-card .amount {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+}
+
+.savings-badge {
+    background: #2e7d32;
+    color: #ffffff;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+/* --- 7. Cart Page Styles --- */
+.cart-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.cart-items-list {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-height: 250px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-info h4 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.cart-item-info p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.qty-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--accent-color);
+    background: var(--card-bg);
+    color: var(--accent-color);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.qty-btn:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+}
+
+.cart-summary {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: fit-content;
+}
+
+.cart-summary h3 {
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.summary-row.total {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.free-tag {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.summary-divider {
+    border: none;
+    border-top: 1px dashed var(--card-border);
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkout-form label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.checkout-form input {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    background: var(--input-bg);
+    color: var(--text-primary);
+    outline: none;
+}
+
+.empty-cart-msg {
+    text-align: center;
+    color: var(--text-muted);
+    margin: auto 0;
+    font-size: 1.1rem;
+}
+
+/* --- 8. Media Queries / Responsiveness --- */
+@media (max-width: 850px) {
+    .glass-nav {
+        padding: 16px 20px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .calculator-grid, .cart-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+}

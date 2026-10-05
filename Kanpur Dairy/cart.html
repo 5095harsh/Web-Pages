@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | Kanpur Dairy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    
+    <!-- Navigation Bar -->
+    <nav class="glass-nav">
+        <a href="index.html" class="logo">Kanpur Dairy</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="products.html" class="nav-btn">Products</a>
+            <a href="calculator.html" class="nav-btn">Calculator</a>
+            <a href="cart.html" class="nav-btn active">
+                Cart <span id="cart-badge" class="badge">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <h2 class="page-title">Your Shopping Cart</h2>
+        <p class="subtitle">Review your selected items and confirm delivery details.</p>
+
+        <div class="cart-wrapper">
+            <!-- Cart Items List Container -->
+            <div id="cart-items-container" class="cart-items-list glass">
+                <!-- Dynamically populated via JS -->
+            </div>
+
+            <!-- Cart Summary & Checkout Box -->
+            <div class="cart-summary glass">
+                <h3>Order Summary</h3>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>₹<span id="subtotal-price">0</span></span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery Charge (Kanpur Local)</span>
+                    <span class="free-tag">FREE</span>
+                </div>
+                <hr class="summary-divider">
+                <div class="summary-row total">
+                    <span>Total Amount</span>
+                    <span>₹<span id="final-price">0</span></span>
+                </div>
+
+                <div class="checkout-form">
+                    <label for="customer-name">Delivery Address / Area</label>
+                    <input type="text" id="customer-name" placeholder="e.g. Swaroop Nagar, Kanpur" required>
+                    
+                    <button class="cta-btn full-width whatsapp-btn" onclick="checkoutWhatsApp()">
+                        📲 Order via WhatsApp
+                    </button>
+                    <button class="cta-btn secondary full-width" onclick="clearCart()">
+                        Clear Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+            gsap.from(".page-title", { opacity: 0, y: -20, duration: 0.8 });
+            gsap.from(".cart-wrapper", { opacity: 0, y: 30, duration: 0.8, delay: 0.2 });
+        });
+    </script>
+</body>
+</html>

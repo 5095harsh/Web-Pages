@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanpur Dairy | Pure & Fresh Dairy Products</title>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Three.js 3D Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- 3D Canvas Background Container -->
+    <div id="canvas-container"></div>
+    
+    <!-- Navigation Bar -->
+    <nav class="glass-nav">
+        <a href="index.html" class="logo">Kanpur Dairy</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn active">Home</a>
+            <a href="products.html" class="nav-btn">Products</a>
+            <a href="calculator.html" class="nav-btn">Calculator</a>
+            <a href="cart.html" class="nav-btn">
+                Cart <span id="cart-badge" class="badge">0</span>
+            </a>
+            <!-- Dark / Light Mode Toggle Button -->
+            <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌙</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Fresh From Farm To Your Home</h1>
+            <p>100% Pure, Untampered & Organic Dairy Products Delivered Daily Across Kanpur.</p>
+            <div class="hero-actions">
+                <a href="products.html" class="cta-btn">Explore Products</a>
+                <a href="calculator.html" class="cta-btn secondary">Calculate Plan</a>
+            </div>
+        </section>
+
+        <!-- Feature Highlights -->
+        <section class="features-grid">
+            <div class="feature-card glass">
+                <div class="icon">🌿</div>
+                <h3>100% Organic</h3>
+                <p>Pure milk with zero preservatives, chemicals, or synthetic additives.</p>
+            </div>
+            <div class="feature-card glass">
+                <div class="icon">🚚</div>
+                <h3>Morning Delivery</h3>
+                <p>Freshly milked and delivered to your doorstep before 7:00 AM daily.</p>
+            </div>
+            <div class="feature-card glass">
+                <div class="icon">🔬</div>
+                <h3>Quality Tested</h3>
+                <p>Rigorously tested for purity, fat content, and nutritional richness.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Main JS Application Logic -->
+    <script src="script.js"></script>
+    
+    <!-- Hero & Entrance Animations -->
+    <script>
+        window.addEventListener("load", () => {
+            gsap.from(".hero h1", { opacity: 0, y: -30, duration: 1, ease: "power3.out" });
+            gsap.from(".hero p", { opacity: 0, duration: 1, delay: 0.3 });
+            gsap.from(".hero-actions", { opacity: 0, scale: 0.9, duration: 0.6, delay: 0.6 });
+            gsap.from(".feature-card", { 
+                opacity: 0, 
+                y: 40, 
+                duration: 0.8, 
+                stagger: 0.2, 
+                delay: 0.8,
+                ease: "power2.out"
+            });
+        });
+    </script>
+</body>
+</html>

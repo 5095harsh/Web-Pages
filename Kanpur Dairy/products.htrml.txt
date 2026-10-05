@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Kanpur Dairy</title>
+    <!-- Link to the shared stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- GSAP for smooth UI animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Three.js for 3D Background Elements -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        /* Specific styles for the product page elements */
+        .page-title {
+            text-align: center;
+            color: #006064;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .add-to-cart {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(0, 131, 143, 0.1);
+            color: #00838f;
+            border: 1px solid #00838f;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .add-to-cart:hover {
+            background: #00838f;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D Canvas Background Container -->
+    <div id="canvas-container"></div>
+    
+    <!-- Glassmorphism Navigation (Updated with standard anchor links) -->
+    <nav class="glass-nav">
+        <div class="logo">Kanpur Dairy</div>
+        <div class="nav-links">
+            <!-- Assuming index.html is home and calculator.html is the third page -->
+            <a href="index.html" class="nav-btn" style="text-decoration: none;">Home</a>
+            <a href="products.html" class="nav-btn active" style="text-decoration: none;">Products</a>
+            <a href="calculator.html" class="nav-btn" style="text-decoration: none;">Calculator</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Expanded Products Section -->
+        <section id="products-page" class="page active" style="display: block;">
+            <h2 class="page-title">Our Premium Dairy Collection</h2>
+            <p class="subtitle">Freshly sourced from local farms in Kanpur, delivered straight to your door.</p>
+            
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card glass">
+                    <div class="product-icon">🥛</div>
+                    <h3>A2 Cow Milk</h3>
+                    <p>Fresh organic cow milk, untampered and rich in nutrients.</p>
+                    <p class="price">₹80 / Litre</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card glass">
+                    <div class="product-icon">🍶</div>
+                    <h3>Buffalo Milk</h3>
+                    <p>Rich, creamy, and high in calcium. Perfect for tea and sweets.</p>
+                    <p class="price">₹70 / Litre</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card glass">
+                    <div class="product-icon">🧈</div>
+                    <h3>Desi Bilona Ghee</h3>
+                    <p>Traditional hand-churned pure ghee made from curd.</p>
+                    <p class="price">₹1200 / Kg</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card glass">
+                    <div class="product-icon">🧀</div>
+                    <h3>Malai Paneer</h3>
+                    <p>Soft, fresh, and melt-in-the-mouth paneer made daily.</p>
+                    <p class="price">₹350 / Kg</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card glass">
+                    <div class="product-icon">🥣</div>
+                    <h3>Organic Dahi</h3>
+                    <p>Thick, creamy, and naturally set probiotic yogurt.</p>
+                    <p class="price">₹80 / 500g</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card glass">
+                    <div class="product-icon">🧈</div>
+                    <h3>White Butter (Makhan)</h3>
+                    <p>Freshly churned unsalted white butter, just like homemade.</p>
+                    <p class="price">₹450 / 500g</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- External Script -->
+    <script src="script.js"></script>
+    
+    <!-- Page Specific Animation Script -->
+    <script>
+        // Animate product cards appearing one by one on load
+        window.addEventListener("load", () => {
+            gsap.from(".product-card", {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15, // Adds a slight delay between each card's animation
+                ease: "power3.out"
+            });
+            gsap.from(".page-title", { opacity: 0, y: -20, duration: 1 });
+            gsap.from(".subtitle", { opacity: 0, duration: 1, delay: 0.3 });
+        });
+    </script>
+</body>
+</html>
